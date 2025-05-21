@@ -24,7 +24,7 @@ rotation_interval_days = 7
 alert_email            = "you@example.com"
 ```
 
-### 3. Zip Lambda Code
+### 3. Zip Lambda Code (in this repo rotate_key.zip already available, you can move to next step)
 
 ```bash
 cd lambda
@@ -41,11 +41,15 @@ terraform apply
 
 ✅ Accept SNS email confirmation
 
-### 🔁 Test Rotation
+### 🔁 Test Rotation Manually,
+Ensure:
+💥 Test the whole rotation workflow immediately (recommended for first-time validation)
+🧪 Ensure your Lambda and permissions are working as expected
+🚨 Trigger the SNS alert to verify email setup
 
-```bash
+bash command: 
 aws secretsmanager rotate-secret --secret-id your-iam-user-access-key
-```
+(replace demo-user-access-key at actual of yours)
 
 Then:
 - ✅ Check Secrets Manager for new keys
